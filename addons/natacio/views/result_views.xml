@@ -1,0 +1,40 @@
+<odoo>
+    <!-- Vistas de Result -->
+    <record id="view_result_list" model="ir.ui.view">
+        <field name="name">natacio.result.list</field>
+        <field name="model">natacio.result</field>
+        <field name="arch" type="xml">
+            <list string="Resultats">
+                <field name="swimmer_id"/>
+                <field name="event_id"/>
+                <field name="series_id"/>
+                <field name="time"/>
+                <field name="points"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_result_form" model="ir.ui.view">
+        <field name="name">natacio.result.form</field>
+        <field name="model">natacio.result</field>
+        <field name="arch" type="xml">
+            <form string="Resultat">
+                <sheet>
+                    <group>
+                        <field name="swimmer_id"/>
+                        <field name="event_id"/>
+                        <field name="series_id"/>
+                        <field name="time"/>
+                        <field name="points"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_natacio_result_list" model="ir.actions.act_window">
+        <field name="name">Resultats</field>
+        <field name="res_model">natacio.result</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

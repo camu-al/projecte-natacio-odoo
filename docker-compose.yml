@@ -1,0 +1,41 @@
+
+services:
+  db:
+    image: postgres:15
+    container_name: odoo-postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+    networks:
+      - odoo-net
+
+  odoo:
+    image: odoo:18
+    container_name: odoo-app
+    depends_on:
+      - db
+    ports:
+      - "8070:8069"  
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    environment:
+      HOST: db
+      USER: odoo
+      PASSWORD: odoo
+      # Opcional: Si quieres forzar base de datos específica
+      # DB_NAME: fncv
+    command: ["--dev=all", "-u", "natacio", "-d", "fncv"]
+    networks:
+      - odoo-net
+
+volumes:
+  odoo-web-data:
+  odoo-db-data:
+
+networks:
+  odoo-net:

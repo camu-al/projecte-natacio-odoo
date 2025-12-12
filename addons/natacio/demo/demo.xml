@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ESTILS -->
+    <record id="style_freestyle" model="natacio.style">
+        <field name="name">Crol</field>
+    </record>
+    <record id="style_backstroke" model="natacio.style">
+        <field name="name">Esquena</field>
+    </record>
+    <record id="style_butterfly" model="natacio.style">
+        <field name="name">Papallona</field>
+    </record>
+
+    <!-- CATEGORIES -->
+    <record id="category_under12" model="natacio.category">
+        <field name="name">Sub 12</field>
+        <field name="age_min">8</field>
+        <field name="age_max">12</field>
+    </record>
+    <record id="category_under16" model="natacio.category">
+        <field name="name">Sub 16</field>
+        <field name="age_min">13</field>
+        <field name="age_max">16</field>
+    </record>
+
+    <!-- CLUBS -->
+    <record id="club_delfins" model="natacio.club">
+        <field name="name">Dofins de Barcelona</field>
+        <field name="town">Barcelona</field>
+    </record>
+    <record id="club_tortugues" model="natacio.club">
+        <field name="name">Tortugues de Girona</field>
+        <field name="town">Girona</field>
+    </record>
+    <record id="club_madrid" model="natacio.club">
+        <field name="name">Tiburones de Madrid</field>
+        <field name="town">Madrid</field>
+    </record>
+
+    <!-- NADADORS -->
+    <record id="swimmer_pere" model="natacio.swimmer">
+        <field name="name">Camu</field>
+        <field name="birth_year">2010</field>
+        <field name="club_id" ref="club_delfins"/>
+        <field name="category_id" ref="category_under12"/>
+        <field name="style_id" ref="style_freestyle"/>
+    </record>
+
+    <record id="swimmer_jabato" model="natacio.swimmer">
+        <field name="name">Jabato</field>
+        <field name="birth_year">2011</field>
+        <field name="club_id" ref="club_madrid"/>
+        <field name="category_id" ref="category_under12"/>
+        <field name="style_id" ref="style_freestyle"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,13 @@
+<odoo>
+    <menuitem id="menu_natacio_root" name="Natació" sequence="10"/>
+
+    <menuitem id="menu_natacio_clubs" name="Clubs" parent="menu_natacio_root" sequence="1" action="action_natacio_club_list"/>
+    <menuitem id="menu_natacio_categories" name="Categories" parent="menu_natacio_root" sequence="2" action="action_natacio_category_list"/>
+    <menuitem id="menu_natacio_styles" name="Estils" parent="menu_natacio_root" sequence="3" action="action_natacio_style_list"/>
+    <menuitem id="menu_natacio_swimmers" name="Nadadors" parent="menu_natacio_root" sequence="4" action="action_natacio_swimmer_list"/>
+    <menuitem id="menu_natacio_championships" name="Campionats" parent="menu_natacio_root" sequence="5" action="action_natacio_championship_list"/>
+    <menuitem id="menu_natacio_sessions" name="Sessions" parent="menu_natacio_root" sequence="6" action="action_natacio_session_list"/>
+    <menuitem id="menu_natacio_events" name="Proves" parent="menu_natacio_root" sequence="7" action="action_natacio_event_list"/>
+    <menuitem id="menu_natacio_series" name="Sèries" parent="menu_natacio_root" sequence="8" action="action_natacio_series_list"/>
+    <menuitem id="menu_natacio_results" name="Resultats" parent="menu_natacio_root" sequence="9" action="action_natacio_result_list"/>
+</odoo>

@@ -1,0 +1,75 @@
+<odoo>
+    <!-- LIST -->
+    <record id="view_natacio_club_list" model="ir.ui.view">
+        <field name="name">natacio.club.list</field>
+        <field name="model">natacio.club</field>
+        <field name="arch" type="xml">
+            <list string="Clubs">
+                <field name="name"/>
+                <field name="town"/>
+                <field name="members_count"/>
+                <field name="total_points"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM -->
+    <record id="view_natacio_club_form" model="ir.ui.view">
+        <field name="name">natacio.club.form</field>
+        <field name="model">natacio.club</field>
+        <field name="arch" type="xml">
+            <form string="Club">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="town"/>
+                        <field name="members_count"/>
+                        <field name="logo"/>
+                        <field name="total_points" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Nadadors">
+                            <field name="swimmers_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="age"/>
+                                    <field name="category_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Campionats">
+                            <field name="championships_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- KANBAN -->
+    <record id="view_natacio_club_kanban" model="ir.ui.view">
+        <field name="name">natacio.club.kanban</field>
+        <field name="model">natacio.club</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="total_points"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="name"/></strong><br/>
+                            <span>Total punts: <field name="total_points"/></span>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ACCIÓN -->
+    <record id="action_natacio_club_list" model="ir.actions.act_window">
+        <field name="name">Clubs</field>
+        <field name="res_model">natacio.club</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+</odoo>

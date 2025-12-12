@@ -1,0 +1,44 @@
+<odoo>
+    <!-- Vistas de Event -->
+    <record id="view_event_list" model="ir.ui.view">
+        <field name="name">natacio.event.list</field>
+        <field name="model">natacio.event</field>
+        <field name="arch" type="xml">
+            <list string="Proves">
+                <field name="name"/>
+                <field name="session_id"/>
+                <field name="style_id"/>
+                <field name="category_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_event_form" model="ir.ui.view">
+        <field name="name">natacio.event.form</field>
+        <field name="model">natacio.event</field>
+        <field name="arch" type="xml">
+            <form string="Prova">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="session_id"/>
+                        <field name="style_id"/>
+                        <field name="category_id"/>
+                        <field name="registrant_ids" widget="many2many_tags"/>
+                    </group>
+                    <notebook>
+                        <page string="Sèries">
+                            <field name="series_ids" mode="kanban,tree,form"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_natacio_event_list" model="ir.actions.act_window">
+        <field name="name">Proves</field>
+        <field name="res_model">natacio.event</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

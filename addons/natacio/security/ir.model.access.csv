@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_natacio_club,natacio.club,model_natacio_club,,1,1,1,1
+access_natacio_category,natacio.category,model_natacio_category,,1,1,1,1
+access_natacio_style,natacio.style,model_natacio_style,,1,1,1,1
+access_natacio_swimmer,natacio.swimmer,model_natacio_swimmer,,1,1,1,1
+access_natacio_championship,natacio.championship,model_natacio_championship,,1,1,1,1
+access_natacio_session,natacio.session,model_natacio_session,,1,1,1,1
+access_natacio_event,natacio.event,model_natacio_event,,1,1,1,1
+access_natacio_result,natacio.result,model_natacio_result,,1,1,1,1

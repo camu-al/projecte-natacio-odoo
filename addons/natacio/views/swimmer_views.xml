@@ -1,0 +1,68 @@
+<odoo>
+    <record id="view_natacio_swimmer_list" model="ir.ui.view">
+        <field name="name">natacio.swimmer.list</field>
+        <field name="model">natacio.swimmer</field>
+        <field name="arch" type="xml">
+            <list string="Nadadors">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="club_id"/>
+                <field name="category_id"/>
+                <field name="style_id"/>
+                <field name="payment_progress"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_natacio_swimmer_form" model="ir.ui.view">
+        <field name="name">natacio.swimmer.form</field>
+        <field name="model">natacio.swimmer</field>
+        <field name="arch" type="xml">
+            <form string="Nadador">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="birth_year"/>
+                        <field name="age" readonly="1"/>
+                        <field name="club_id"/>
+                        <field name="category_id"/>
+                        <field name="style_id"/>
+                    </group>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="last_payment_date"/>
+                        <field name="payment_progress" readonly="1"/>
+                    </group>
+                    <field name="best_times_summary" readonly="1"/>
+                    <field name="result_ids"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_natacio_swimmer_kanban" model="ir.ui.view">
+        <field name="name">natacio.swimmer.kanban</field>
+        <field name="model">natacio.swimmer</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="club_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="name"/></strong> (<field name="age"/> anys)<br/>
+                            Club: <field name="club_id"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_natacio_swimmer_list" model="ir.actions.act_window">
+        <field name="name">Nadadors</field>
+        <field name="res_model">natacio.swimmer</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+</odoo>

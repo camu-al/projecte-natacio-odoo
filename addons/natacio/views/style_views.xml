@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- VISTA DE LISTA -->
+    <record id="view_natacio_style_list" model="ir.ui.view">
+        <field name="name">natacio.style.list</field>
+        <field name="model">natacio.style</field>
+        <field name="arch" type="xml">
+            <list string="Estils">
+                <field name="name"/>
+                <!-- Los campos One2many no se pueden mostrar en list directamente -->
+            </list>
+        </field>
+    </record>
+
+    <!-- VISTA DE FORMULARIO -->
+    <record id="view_natacio_style_form" model="ir.ui.view">
+        <field name="name">natacio.style.form</field>
+        <field name="model">natacio.style</field>
+        <field name="arch" type="xml">
+            <form string="Estil">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="top_swimmers">
+                            <list string="Millors nadadors">
+                                <field name="name"/>
+                                <field name="club_id"/>
+                            </list>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ACCIÓN PARA ABRIR LA VISTA -->
+    <record id="action_natacio_style_list" model="ir.actions.act_window">
+        <field name="name">Estils</field>
+        <field name="res_model">natacio.style</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>
