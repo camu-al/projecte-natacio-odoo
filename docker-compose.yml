@@ -27,7 +27,6 @@ services:
       HOST: db
       USER: odoo
       PASSWORD: odoo
-      # Opcional: Si quieres forzar base de datos específica
       # DB_NAME: fncv
     command: ["--dev=all", "-u", "natacio", "-d", "fncv"]
     networks:
