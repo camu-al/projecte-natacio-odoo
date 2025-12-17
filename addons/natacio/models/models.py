@@ -40,8 +40,16 @@ class Club(models.Model):
     members_count = fields.Integer(string="Socis", default=0)
     logo = fields.Binary(string="Logo")
 
-    swimmers_ids = fields.One2many("natacio.swimmer", "club_id", string="Nadadors")
-    championships_ids = fields.Many2many("natacio.championship", string="Campionats")
+    # Relacion un club muchos nadadores
+    swimmers_ids = fields.One2many(
+        "natacio.swimmer", # modelo donde hace la relacion
+         "club_id", # nombre del campo Many2one obligatorio en nadadores
+          string="Nadadors") 
+
+    # Relacion muchos clubs muchos campeonatos
+    championships_ids = fields.Many2many(
+        "natacio.championship",
+         string="Campionats")
 
     total_points = fields.Float(string="Punts totals", compute="_compute_total_points", store=True)
 
@@ -72,9 +80,10 @@ class Swimmer(models.Model):
 
     best_times_summary = fields.Text(string="Millors temps per estil", compute="_compute_best_times")
 
-    @api.depends("birth_year")
+    #Age depende de birth_year al cambiar la fecha calcula la edad
+    @api.depends("birth_year") 
     def _compute_age(self):
-        year_now = date.today().year
+        year_now = date.today().year #año actual
         for r in self:
             r.age = year_now - r.birth_year if r.birth_year else 0
 

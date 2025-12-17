@@ -2,20 +2,6 @@
 {
     'name': "Natació Federació",
 
-    'summary': "Gestió de clubs, categories, nadadors i campionats de natació",
-
-    'description': """
-    Mòdul de gestió per a la Federació de Natació:
-    - Clubs amb nadadors i classificacions.
-    - Categories d'edat i estils de natació.
-    - Campionats amb sessions, proves i resultats.
-    - Control de quotes anuals i participació.
-    """,
-
-    'author': "Federació de Natació",
-    'website': "https://www.federacionnatacio.local",
-
-    'category': 'Sports',
     'depends': [
         'base',
         'contacts',
@@ -23,10 +9,10 @@
     ],
 
     'data': [   
-        # Seguridad
+        # Security
         'security/ir.model.access.csv',
 
-        # Primero las acciones y vistas
+        # Views
         'views/club_views.xml',
         'views/category_views.xml',
         'views/swimmer_views.xml',
@@ -37,12 +23,12 @@
         'views/series_views.xml',
         'views/result_views.xml',
 
-        # Menús
+        # Menus
         'views/natacio_menus.xml',
     ],
 
     'demo': [
-        'demo/demo.xml',  # Aquí se especifica la ruta correcta
+        'demo/demo.xml',  
     ],
 
     'application': True,

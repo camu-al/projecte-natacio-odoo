@@ -47,9 +47,10 @@
     </record>
 
     <!-- KANBAN -->
+    <!-- id , name, model, kanban field name , span  -->
     <record id="view_natacio_club_kanban" model="ir.ui.view">
         <field name="name">natacio.club.kanban</field>
-        <field name="model">natacio.club</field>
+        <field name="model">natacio.club</field> 
         <field name="arch" type="xml">
             <kanban>
                 <field name="name"/>
